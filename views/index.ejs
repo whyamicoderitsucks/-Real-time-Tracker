@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Realtime Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">Realtime Tracker</div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" id="loginNav">Login</a>
+        <img id="profileIcon" src="/images/profile.png" alt="Profile" style="display:none; ">
+      </li>
+      <!--<li><a href="#">About</a></li> -->
+    </ul>
+  </nav>
+  <div id="profileModal" class="login-popup popup-modal modal-open hideDiv" >
+  <div class="modal-content">
+    <h2>Profile</h2>
+    <p><strong>Name:</strong> <span id="profileName"></span></p>
+    <p><strong>Device:</strong> <span id="profileDevice"></span></p>
+
+    <button id="disconnectBtn" class="btn">Disconnect</button>
+    <button id="saveDeviceBtn" class="btn">Save my Device</button>
+  </div>
+  </div>
+
+  <div class="container">
+    <h1 class="title">Find & Track in Real Time</h1>
+    <p class="subtitle">Reconnect with friends in a new town, track your devices, or share your live location securely.</p>
+
+    <div class="tracker-status">
+      <div class="status-card">
+        <div class="status-title">Active Users</div>
+        <div class="status-value" id="activeUsers"><%= typeof activeUsers !== 'undefined' ? activeUsers : '0' %></div>
+      </div>
+      <div class="status-card">
+        <div class="status-title">Events Today</div>
+        <div class="status-value"><%= typeof eventsToday !== 'undefined' ? eventsToday : '0' %></div>
+      </div>
+      <div class="status-card">
+        <div class="status-title">Last Update</div>
+        <div class="status-value"><%= typeof lastUpdate !== 'undefined' ? lastUpdate : 'N/A' %></div>
+      </div>
+    </div>
+
+    <button id="connectBtn" class="btn">Connect Your Device</button>
+
+    <!-- Map (hidden until connected) -->
+    <div id="map" class="map hidden"></div>
+  </div>
+
+  <footer>
+    &copy; <%= new Date().getFullYear() %> Realtime Tracker. All rights reserved.
+  </footer>
+
+  <!-- Modal -->
+  <div id="connectModal" class="hideDiv popup-modal" >
+    <div class="modal-content">
+      <h2>Set Up Your Profile</h2>
+      <label>Name:</label>
+      <input type="text" id="username" placeholder="Enter your name" required>
+      <label>Device Name:</label>
+      <input type="text" id="devicename" placeholder="Android, iPhone, Laptop...">
+      <label>Marker Color:</label>
+      <input type="color" id="markerColor" value="#4f8cff">
+      <button id="saveProfile" class="btn">Save & Continue</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+</html>

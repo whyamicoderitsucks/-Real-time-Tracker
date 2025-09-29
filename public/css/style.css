@@ -1,0 +1,274 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #4f8cff 0%, #38e8ff 100%);
+  min-height: 100vh;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 52px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-weight: 700;
+}
+
+.navbar .nav-brand {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin:0;
+  padding: 0px 0px;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: opacity 0.2s;
+
+}
+
+.navbar .nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: #4f8cff;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  color: #555;
+}
+
+/* Status cards */
+.tracker-status {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.status-card {
+  background: #f5faff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+  padding: 20px;
+  min-width: 120px;
+  transition: box-shadow 0.2s;
+}
+
+.status-card:hover {
+  box-shadow: 0 4px 16px rgba(56, 232, 255, 0.15);
+}
+
+.status-title {
+  font-size: 1rem;
+  color: #38e8ff;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.status-value {
+  font-size: 2rem;
+  color: #4f8cff;
+  font-weight: 700;
+}
+
+/* Button */
+.btn {
+  background: linear-gradient(90deg, #4f8cff 0%, #38e8ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(56, 232, 255, 0.12);
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #38e8ff 0%, #4f8cff 100%);
+}
+
+
+/* Map */
+.map {
+  height: 300px;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 16px;
+  color: #4f8cff;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #444;
+}
+#btn {
+  padding: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="color"] {
+  margin-top: 6px;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+
+/* Modal container (overlay) */
+.popup-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* make sure it stays on top */
+}
+
+/* Modal content box */
+.popup-modal.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.popup-modal label {
+  display: block;
+  margin-top: 12px; /* space above each label */
+  margin-bottom: 6px; /* space below label */
+  font-weight: bold;
+}
+
+.popup-modal input {
+  width: 93%;
+  padding: 8px;
+  margin-bottom: 12px; /* space under each input */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+
+.popup-modal button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+/* Hide by default */
+.hideDiv {
+  display: none !important;
+}
+
+/*Login Popup*/
+
+#profileModal.popup-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* dark overlay */
+  display: flex;
+  justify-content: flex-end; /* push to right */
+  align-items: flex-start;    /* push to top */
+  padding: 64px 24px;        /* same as your design */
+
+
+}
+
+
+#profileModal .modal-content {
+  margin-right: 20px;   /* optional, extra breathing space */
+  margin-top: 10px;     /* optional, lower it a bit */
+}
+
+body.modal-open {
+  filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+
+#profileIcon{
+  width: 40px; 
+  height:40px; 
+  border-radius:50%; 
+  
+}
