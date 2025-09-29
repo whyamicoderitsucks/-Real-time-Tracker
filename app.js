@@ -2,9 +2,9 @@
 const session = require('express-session')
 const express = require('express');
 const app = express();
-const port = 3000;
 const socketIo = require('socket.io');
 const http = require('http');
+const PORT = process.env.PORT || 3000;
 const server = http.createServer(app);
 const io = socketIo(server);
 const mongoose = require('mongoose');
@@ -35,7 +35,7 @@ app.get("/session", (req, res) => {
 });
 
 //mongodb connection
-mongoose.connect('mongodb://127.0.0.1:27017/realtimeuserstracker' , {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -93,7 +93,7 @@ app.post("/saveDevice", async (req, res) => {
 
 
 
-server.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
